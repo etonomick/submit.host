@@ -1,2 +1,11 @@
 # submit.host
 Form submit API
+
+# .env.local
+```
+MONGODB_URI=
+DISCORD_CLIENT_ID=
+DISCORD_CLIENT_SECRET=
+NEXTAUTH_SECRET=
+NEXTAUTH_URL=
+```
