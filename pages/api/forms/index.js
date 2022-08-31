@@ -1,10 +1,48 @@
+import clientPromise from "../../../lib/mongodb";
 import withSub from "../../../lib/withSub";
 
 async function handler(req, res) {
 
-    res.status(200).json({
-        sub: req.sub
-    })
+    const { method, sub } = req
+
+    const client = await clientPromise
+    const db = client.db("test")
+
+    if (method === "GET") {
+        const forms = await db.collection("forms").aggregate([
+            {
+                $match: {
+                    "user_id": sub
+                }
+            },
+            {
+                $lookup: {
+                    from: "submissions",
+                    localField: "_id",
+                    foreignField: "form_id",
+                    as: "submissions",
+                }
+            },
+            {
+                $project: {
+                    "title": 1,
+                    "count": {
+                        $size: "$submissions"
+                    }
+                }
+            }
+        ]).toArray()
+        res.status(200).json(forms)
+    }
+
+    if (method === "POST") {
+        await db.collection("forms").insert({
+            user_id: sub,
+            created_at: new Date(),
+            title: "Test form"
+        })
+        res.status(200).json({})
+    }
 
 }
 
