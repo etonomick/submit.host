@@ -15,6 +15,8 @@ export default async function handler(req, res) {
 
     const submission = await db.collection("submissions").insert({
         form_id: ObjectId(id),
+        created_at: new Date(),
+        is_viewed: false,
         data: {
             "first_name": "Valery",
             "last_name": "Stepanov",
