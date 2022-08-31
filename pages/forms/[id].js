@@ -23,13 +23,13 @@ export default function FormDetails() {
     }
 
     return (
-        <div className="flex bg-orange-400">
-            <div className="w-64 bg-green-500">
+        <div className="flex flex-row h-full">
+            <div className="w-64 overflow-y-scroll">
 
                 <h1 className="text-2xl">{data.form.title}</h1>
 
-                {data && data.form.submissions.map(submission => (
-                    <div>
+                {data && data.form.submissions.map((submission, index) => (
+                    <div key={submission._id}>
                         <pre className="text-xs font-mono whitespace-pre-wrap">
                             {JSON.stringify(submission.data, null, 2)}
                         </pre>
@@ -37,6 +37,11 @@ export default function FormDetails() {
                 ))}
 
             </div>
+            
+            <div className="flex-1">
+                Preview
+            </div>
+
         </div>
     )
 }
