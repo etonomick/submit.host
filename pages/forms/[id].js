@@ -1,4 +1,5 @@
 import { Tab } from "@headlessui/react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Layout from "../../components/layout";
@@ -48,9 +49,11 @@ export default function FormDetails() {
                                 <div className="overflow-y-scroll h-auto flex flex-col pt-14">
                                     {data && data.form && data.form.submissions && data.form.submissions.map((submission, index) => (
                                         <div key={submission._id}>
+                                            <Link href={`/forms/${submission.form_id}/${submission._id}`}><a>
                                             <pre className="text-xs font-mono whitespace-pre-wrap">
                                                 {JSON.stringify(submission, null, 2)}
                                             </pre>
+                                            </a></Link>
                                         </div>
                                     ))}
                                 </div>
