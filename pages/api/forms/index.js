@@ -26,8 +26,19 @@ async function handler(req, res) {
             {
                 $project: {
                     "title": 1,
-                    "count": {
+                    "total": {
                         $size: "$submissions"
+                    },
+                    "unread": {
+                        $size: {
+                            $filter: {
+                                input: "$submissions",
+                                as: "submissions",
+                                cond: {
+                                    $eq: ["$$submissions.is_viewed", false]
+                                }
+                            }
+                        }
                     }
                 }
             }

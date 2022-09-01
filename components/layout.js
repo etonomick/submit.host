@@ -36,15 +36,16 @@ export default function Layout({ children }) {
                 <div className="overflow-y-scroll p-3">
                     {forms && forms.map((form, index) => (
                         <Link href={`/forms/${form._id}`}><a>
-                            <div key={form._id ?? index} className={`flex gap-1 p-3 rounded ${!form._id ? "text-neutral-500" : "text-black"} ${router.query.id === form._id ? "bg-neutral-200" : "bg-white"}`}>
+                            <div key={form._id ?? index} className={`flex items-center gap-3 p-3 rounded ${!form._id ? "text-neutral-500" : "text-black"} ${router.query.id === form._id ? "bg-neutral-200" : "bg-white"}`}>
                                 <div className="flex-1">{form.title}</div>
-                                <div className="text-neutral-400">{form.count}</div>
+                                {form.unread > 0 && <div className="bg-red-500 text-white px-2 rounded-full">{form.unread}</div>}
+                                <div className="text-neutral-400">{form.total}</div>
                             </div>
                         </a></Link>
                     ))}
                 </div>
 
-                <div className="absolute left-0 bottom-0 right-0 bg-pink-500 p-5 z-10 flex items-center justify-center">
+                <div className="absolute left-0 bottom-14 right-0 bg-pink-500 p-5 z-10 flex items-center justify-center">
                     <div>{forms && forms.length} forms</div>
                 </div>
 

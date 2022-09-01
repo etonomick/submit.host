@@ -24,7 +24,11 @@ async function handler(req, res) {
             }
         },
         {
-            $addFields: { submissions_count: { $size: "$submissions" } }
+            $addFields: { 
+                submissions_count: { 
+                    $size: "$submissions" 
+                }
+            }
         }]).toArray().then(data => data[0])
 
     res.status(200).json({ form })
