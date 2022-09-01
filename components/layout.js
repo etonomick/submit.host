@@ -36,8 +36,8 @@ export default function Layout({ children }) {
     return (
         <div className="h-screen flex flex-row">
             <div className="w-72 h-screen border-r flex flex-col gap-5 relative">
-{/* 
-                <div className="absolute top-0 bg-white">
+
+                {/* <div className="absolute top-0 bg-white">
                     <div className="">
                         <Link href="/forms"><a><div className="text-2xl font-black">submit.host</div></a></Link>
                     </div>
@@ -73,12 +73,17 @@ export default function Layout({ children }) {
                     ))}
                 </div>
 
-                <div className="absolute left-0 bottom-0 right-0 bg-white p-5 z-10 flex items-center justify-center">
+                <div className="absolute left-0 bottom-0 right-0 bg-white p-5 z-10 flex items-center place-content-between border-t">
                     <div>{forms && forms.length} forms</div>
                     <div>
-                    <Button onClick={async () => {
-                        setNewForm({ ...newForm, ["isOpen"]: true })
-                    }}>new form</Button>
+                        <Button onClick={async () => {
+                            setNewForm({ ...newForm, ["isOpen"]: true })
+                        }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+                            </svg>
+
+                        </Button>
                     </div>
                 </div>
 
