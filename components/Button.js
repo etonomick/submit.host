@@ -1,8 +1,8 @@
-export default function Button({ children, onClick }) {
+export default function Button({ children, onClick, disabled }) {
     return (
-        <div className="flex items-center justify-center border border-neutral-200 rounded px-3 py-2 cursor-pointer bg-gradient-to-t from-neutral-100 to-neutral-50"
-        onClick={onClick}>
+        <button disabled={disabled} className={`inline-flex items-center justify-center px-3 py-2 ${disabled ? "bg-neutral-500 text-black" : "bg-black text-white"}`}
+            onClick={!disabled && onClick}>
             {children}
-        </div>
+        </button>
     )
 }

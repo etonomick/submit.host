@@ -3,7 +3,7 @@ import withSub from "../../../lib/withSub";
 
 async function handler(req, res) {
 
-    const { method, sub } = req
+    const { method, sub, body } = req
 
     const client = await clientPromise
     const db = client.db("test")
@@ -47,10 +47,11 @@ async function handler(req, res) {
     }
 
     if (method === "POST") {
+        console.log(`Title ${body.title}`)
         await db.collection("forms").insert({
             user_id: sub,
             created_at: new Date(),
-            title: "Test form"
+            title: body.title
         })
         res.status(200).json({})
     }
