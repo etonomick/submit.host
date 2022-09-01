@@ -4,6 +4,7 @@ import { useState } from "react";
 import useSWR, { mutate } from "swr";
 import fetcher from "../lib/fetcher";
 import Button from "./Button";
+import FormItem from "./FormItem";
 
 export default function Layout({ children }) {
 
@@ -20,6 +21,10 @@ export default function Layout({ children }) {
         body: JSON.stringify(newForm)
     })
 
+    const deleteForm = (id) => fetch(`/api/forms/${id}`, {
+        method: "DELETE"
+    }) 
+
     return (
         <div className="h-screen flex flex-row">
             <div className="w-72 h-full border-r flex flex-col gap-5 relative pt-14">
@@ -33,19 +38,19 @@ export default function Layout({ children }) {
                     mutate([...forms, newForm])
                 }}>Create new form</Button>
 
-                <div className="overflow-y-scroll p-3">
+                <div className="overflow-y-scroll divide-y">
                     {forms && forms.map((form, index) => (
-                        <Link href={`/forms/${form._id}`}><a>
-                            <div key={form._id ?? index} className={`flex items-center gap-3 p-3 rounded ${!form._id ? "text-neutral-500" : "text-black"} ${router.query.id === form._id ? "bg-neutral-200" : "bg-white"}`}>
-                                <div className="flex-1">{form.title}</div>
-                                {form.unread > 0 && <div className="bg-red-500 text-white px-2 rounded-full">{form.unread}</div>}
-                                <div className="text-neutral-400">{form.total}</div>
-                            </div>
-                        </a></Link>
+                        <FormItem key={form._id ?? index} form={form} deleteHandler={async () => {
+                            if (router.query.id === form._id) {
+                                router.push("/forms")
+                            }
+                            deleteForm(form._id)
+                            mutate(forms.filter(f => f._id !== form._id))
+                        }} />
                     ))}
                 </div>
 
-                <div className="absolute left-0 bottom-14 right-0 bg-pink-500 p-5 z-10 flex items-center justify-center">
+                <div className="absolute left-0 bottom-14 right-0 bg-white p-5 z-10 flex items-center justify-center">
                     <div>{forms && forms.length} forms</div>
                 </div>
 

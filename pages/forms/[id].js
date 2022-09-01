@@ -22,8 +22,8 @@ export default function FormDetails() {
                 <div className="overflow-y-scroll h-full">
                     <Tab.Group>
                         <Tab.List className="bg-white w-full absolute flex space-x-1 p-3 border-b">
-                            <Tab>Unread {data && data.form.submissions.filter(submission => submission.is_viewed === false).length}</Tab>
-                            <Tab>All {data && data.form.submissions.length}</Tab>
+                            <Tab>Unread {data && data.form && data.form.submissions && data.form.submissions.filter(submission => submission.is_viewed === false).length}</Tab>
+                            <Tab>All {data && data.form && data.form.submissions && data.form.submissions.length}</Tab>
                         </Tab.List>
                         <Tab.Panels className="h-full">
                             <Tab.Panel className="h-full">
@@ -46,7 +46,7 @@ export default function FormDetails() {
                             </Tab.Panel>
                             <Tab.Panel>
                                 <div className="overflow-y-scroll h-auto flex flex-col pt-14">
-                                    {data && data.form.submissions.map((submission, index) => (
+                                    {data && data.form && data.form.submissions && data.form.submissions.map((submission, index) => (
                                         <div key={submission._id}>
                                             <pre className="text-xs font-mono whitespace-pre-wrap">
                                                 {JSON.stringify(submission, null, 2)}
