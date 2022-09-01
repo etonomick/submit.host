@@ -22,9 +22,11 @@ export default function Layout({ children }) {
 
     return (
         <div className="h-screen flex flex-row">
-            <div className="w-72 h-full border-r flex flex-col gap-5 relative">
+            <div className="w-72 h-full border-r flex flex-col gap-5 relative pt-14">
 
-                <Link href="/forms"><a><div className="text-2xl font-black">submit.host</div></a></Link>
+                <div className="absolute top-0 bg-white">
+                    <Link href="/forms"><a><div className="text-2xl font-black">submit.host</div></a></Link>
+                </div>
 
                 <Button onClick={async () => {
                     await createForm()
