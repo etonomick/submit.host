@@ -77,9 +77,11 @@ export default function Layout({ children }) {
 
                 <div className="overflow-y-scroll divide-y pt-16">
                     {forms && forms.map((form, index) => (
-                        <FormItem key={form._id ?? index} form={form} deleteHandler={() => {
-                            setDeleteDialog(form)
-                        }} />
+                        <FormItem
+                            key={form._id ?? index}
+                            form={form} deleteHandler={() => {
+                                setDeleteDialog(form)
+                            }} />
                     ))}
                 </div>
 

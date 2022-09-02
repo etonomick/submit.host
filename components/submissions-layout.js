@@ -1,8 +1,8 @@
 import { Tab } from "@headlessui/react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import fetcher from "../lib/fetcher";
+import SubmissionItem from "./SubmissionItem";
 
 export default function SubmissionsLayout({ children }) {
     const router = useRouter()
@@ -46,13 +46,7 @@ export default function SubmissionsLayout({ children }) {
                             <Tab.Panel>
                                 <div className="overflow-y-scroll h-auto flex flex-col pt-14">
                                     {data && data.form && data.form.submissions && data.form.submissions.map((submission, index) => (
-                                        <div key={submission._id}>
-                                            <Link href={`/forms/${submission.form_id}/${submission._id}`}><a>
-                                                <pre className="text-xs font-mono whitespace-pre-wrap">
-                                                    {JSON.stringify(submission, null, 2)}
-                                                </pre>
-                                            </a></Link>
-                                        </div>
+                                        <SubmissionItem item={submission} key={submission._id} />
                                     ))}
                                 </div>
                             </Tab.Panel>
