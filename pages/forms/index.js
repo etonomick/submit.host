@@ -2,7 +2,9 @@ import Layout from "../../components/layout";
 
 export default function FormsIndex() {
     return (
-        <></>
+        <div className="bg-white h-full">
+
+        </div>
     )
 }
 

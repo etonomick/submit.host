@@ -6,7 +6,7 @@ export default function Settings() {
     const { id } = router.query
 
     return (
-        <div>
+        <div className="bg-white h-full ">
             Settings {id}
         </div>
     )

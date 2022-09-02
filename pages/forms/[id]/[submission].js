@@ -7,7 +7,7 @@ export default function Submission() {
     const { id, submission } = router.query
 
     return (
-        <div>
+        <div className="bg-white h-full flex items-center justify-center">
             {id},{submission}
         </div>
     )

@@ -35,10 +35,10 @@ export default function Layout({ children }) {
     })
 
     return (
-        <div className="h-screen flex flex-row">
-            <div className="w-72 h-screen border-r flex flex-col gap-5 relative">
+        <div className="h-screen flex flex-col md:flex-row">
+            <div className="w-72 h-screen overflow-clip flex flex-col relative">
 
-                <div className="absolute top-0 left-0 right-0 bg-white border-b h-16 flex items-center p-3">
+                <div className="absolute top-0 left-0 right-0 h-16 flex items-center p-3">
                     <div className="">
                         <Link href="/forms"><a><div className="text-2xl font-black">submit.host</div></a></Link>
                     </div>
@@ -75,7 +75,7 @@ export default function Layout({ children }) {
                         mutate(forms.filter(f => f._id !== id))
                     }} />
 
-                <div className="overflow-y-scroll divide-y pt-16">
+                <div className="overflow-y-scroll divide-y py-16">
                     {forms && forms.map((form, index) => (
                         <FormItem
                             key={form._id ?? index}
@@ -85,7 +85,7 @@ export default function Layout({ children }) {
                     ))}
                 </div>
 
-                <div className="absolute left-0 bottom-0 right-0 bg-white p-5 z-10 flex items-center place-content-between border-t">
+                <div className="absolute left-0 bottom-0 right-0 p-3 z-10 flex items-center place-content-between">
                     <div>{forms && forms.length} forms</div>
                     <div>
                         <Button onClick={async () => {

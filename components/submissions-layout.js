@@ -12,9 +12,9 @@ export default function SubmissionsLayout({ children }) {
 
     return (
         <div className="flex flex-row h-full">
-            <div className="w-72 border-r flex flex-col relative">
+            <div className="w-72 flex flex-col relative bg-white">
 
-                <div className="bg-white/50 backdrop-blur p-3">
+                <div className=" p-3">
                     <div className="text-2xl font-bold">Submissions</div>
                 </div>
 
