@@ -6,10 +6,10 @@ export default function FormsIndex() {
     )
 }
 
-FormsIndex.getLayout = function getLayout(page) {
-    return (
-        <Layout>
-            {page}
-        </Layout>
-    )
-}
+// FormsIndex.getLayout = function getLayout(page) {
+//     return (
+//         <Layout>
+//             {page}
+//         </Layout>
+//     )
+// }

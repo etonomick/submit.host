@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
+import Layout from "../components/layout";
 
 function SubmitHost({ Component, pageProps: {
     session, ...pageProps
@@ -9,7 +10,9 @@ function SubmitHost({ Component, pageProps: {
 
     return (
         <SessionProvider session={session}>
+            <Layout>
             {getLayout(<Component {...pageProps} />)}
+            </Layout>
         </SessionProvider>
     )
 }

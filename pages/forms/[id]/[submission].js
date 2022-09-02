@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import Layout from "../../../components/layout";
+import SubmissionsLayout from "../../../components/submissions-layout";
 
 export default function Submission() {
-    
+
     const router = useRouter()
     const { id, submission } = router.query
 
@@ -14,5 +14,5 @@ export default function Submission() {
 }
 
 Submission.getLayout = function getLayout(page) {
-    return <Layout>{page}</Layout>
+    return <SubmissionsLayout>{page}</SubmissionsLayout>
 }
