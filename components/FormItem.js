@@ -13,11 +13,12 @@ export default function FormItem({ form, deleteHandler }) {
     return (
         <div onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
 
-            <div className={`transition-all duration-250 flex items-center gap-3 p-3 ${!form._id ? "text-neutral-500" : "text-black"} ${router.query.id === form._id ? "bg-neutral-200" : " hover:bg-neutral-50"}`}>
+            <div className={`transition-all duration-250 flex items-center rounded gap-3 p-3 ${!form._id ? "text-neutral-500" : "text-neutral-600 hover:text-black"} ${router.query.id === form._id ? "bg-white" : " hover:bg-neutral-50"}`}>
 
-                <div className="flex-1 truncate">
+                <div className="flex-1 truncate font-medium text-lg ">
                     <Link href={`/forms/${form._id}`}>
-                        <a>{form.title}</a></Link>
+                        <a><span className="w-full inline-flex">{form.title}</span></a>
+                    </Link>
                 </div>
 
                 {form.unread > 0 && <div className="bg-red-500 text-white text-xs px-2 rounded-full">{form.unread}</div>}
@@ -36,7 +37,7 @@ export default function FormItem({ form, deleteHandler }) {
                                 </svg>
                             </Menu.Button>
 
-                            <Menu.Items className="absolute p-3 right-0 mt-2 origin-top-right divide-y divide-gray-100 bg-white rounded-xl ring-1 ring-black ring-opacity-5 focus:outline-none z-40 w-40">
+                            <Menu.Items className="absolute p-3 right-0 mt-2 origin-top-right divide-y divide-gray-100 bg-white rounded ring-1 ring-black ring-opacity-5 focus:outline-none z-40 w-40">
                                 <Menu.Item>
                                     <Link href={`/forms/${form._id}/settings`}><a>Settings</a></Link>
                                 </Menu.Item>

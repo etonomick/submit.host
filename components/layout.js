@@ -39,7 +39,7 @@ export default function Layout({ children }) {
     return (
         <div className="flex flex-col gap-3 h-screen md:p-6">
             <div className="flex flex-row place-content-between items-center">
-                <div className="flex text-2xl font-bold items-center">
+                <div className="flex text-3xl font-bold items-center">
                     <Button onClick={() => setVisible(!visible)}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
@@ -84,7 +84,7 @@ export default function Layout({ children }) {
                             }}
                             cancel={() => setDeleteDialog(false)} />
 
-                        <div className="overflow-y-scroll divide-y h-full">
+                        <div className="overflow-y-scroll gap-1.5 flex flex-col h-full">
                             {forms && forms.map((form, index) => (
                                 <FormItem
                                     key={form._id ?? index}
