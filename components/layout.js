@@ -74,7 +74,8 @@ export default function Layout({ children }) {
                         }
                         deleteForm(id)
                         mutate(forms.filter(f => f._id !== id))
-                    }} />
+                    }}
+                    cancel={() => setDeleteDialog(false)} />
 
                 <div className="overflow-y-scroll divide-y py-16">
                     {forms && forms.map((form, index) => (
