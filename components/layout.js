@@ -35,11 +35,12 @@ export default function Layout({ children }) {
     })
 
     return (
-        <div className="h-screen flex flex-col lg:flex-row">
-            <div className="w-full lg:w-72 h-72 lg:h-screen overflow-clip flex flex-col relative">
+        <div className="h-screen flex flex-col lg:flex-row gap-3">
+            <div className="w-1/4 shrink-0 h-screen overflow-clip flex flex-col relative">
 
-                <div className="absolute top-0 left-0 right-0 h-16 flex items-center p-3">
-                    <div className="">
+                <div className="absolute top-0 left-0 right-0 h-16 flex items-center p-3 bg-white/50 backdrop-blur z-50">
+                    <div className="flex flex-row items-center gap-3">
+                        <div className="w-7 h-7 bg-black"></div>
                         <Link href="/forms"><a><div className="text-2xl font-black">submit.host</div></a></Link>
                     </div>
                 </div>
@@ -85,7 +86,7 @@ export default function Layout({ children }) {
                     ))}
                 </div>
 
-                <div className="absolute left-0 bottom-0 right-0 p-3 z-10 flex items-center place-content-between">
+                <div className="absolute left-0 bottom-0 right-0 p-3 z-10 flex items-center place-content-between bg-white/50 backdrop-blur">
                     <div>{forms && forms.length} forms</div>
                     <div>
                         <Button onClick={async () => {
@@ -99,7 +100,7 @@ export default function Layout({ children }) {
                 </div>
 
             </div>
-            <div className="flex-1">
+            <div className="w-3/4">
                 {children}
             </div>
         </div>

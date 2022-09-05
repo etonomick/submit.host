@@ -36,7 +36,7 @@ export default function FormItem({ form, deleteHandler }) {
                                 </svg>
                             </Menu.Button>
 
-                            <Menu.Items className="absolute p-3 right-0 mt-2 origin-top-right divide-y divide-gray-100 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                            <Menu.Items className="absolute p-3 right-0 mt-2 origin-top-right divide-y divide-gray-100 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-40">
                                 <Menu.Item>
                                     <Link href={`/forms/${form._id}/settings`}><a>Settings</a></Link>
                                 </Menu.Item>
