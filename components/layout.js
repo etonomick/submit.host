@@ -35,8 +35,8 @@ export default function Layout({ children }) {
     })
 
     return (
-        <div className="h-screen flex flex-col lg:flex-row gap-3">
-            <div className="w-1/4 shrink-0 h-screen overflow-clip flex flex-col relative">
+        <div className="h-screen flex flex-col md:flex-row gap-3">
+            <div className="w-full md:w-1/4 shrink-0 h-screen overflow-clip flex flex-col relative">
 
                 <div className="absolute top-0 left-0 right-0 h-16 flex items-center p-3 bg-white/50 backdrop-blur z-50">
                     <div className="flex flex-row items-center gap-3">
@@ -100,7 +100,7 @@ export default function Layout({ children }) {
                 </div>
 
             </div>
-            <div className="w-3/4">
+            <div className="w-full md:w-3/4">
                 {children}
             </div>
         </div>
