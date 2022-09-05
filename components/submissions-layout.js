@@ -11,8 +11,8 @@ export default function SubmissionsLayout({ children }) {
     const { data, error, mutate } = useSWR(`/api/forms/${id}`, fetcher)
 
     return (
-        <div className="flex flex-row h-full">
-            <div className="w-72 flex flex-col relative bg-white">
+        <div className="flex flex-col md:flex-row md:h-full">
+            <div className="md:w-72 h-72 md:h-full flex flex-col relative bg-white">
 
                 <div className=" p-3">
                     <div className="text-2xl font-bold">Submissions</div>

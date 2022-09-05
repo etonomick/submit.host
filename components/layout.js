@@ -35,8 +35,8 @@ export default function Layout({ children }) {
     })
 
     return (
-        <div className="h-screen flex flex-col md:flex-row">
-            <div className="w-72 h-screen overflow-clip flex flex-col relative">
+        <div className="h-screen flex flex-col lg:flex-row">
+            <div className="w-full lg:w-72 h-72 lg:h-screen overflow-clip flex flex-col relative">
 
                 <div className="absolute top-0 left-0 right-0 h-16 flex items-center p-3">
                     <div className="">
