@@ -27,6 +27,8 @@ export default function Layout({ children }) {
         body: JSON.stringify({
             title: newForm.title
         })
+    }).then(res => res.json()).then(data => {
+        router.push(`/forms/${data.insertedIds["0"]}/settings`)
     })
 
     const [deleteDialog, setDeleteDialog] = useState(false)
@@ -37,20 +39,22 @@ export default function Layout({ children }) {
     const [visible, setVisible] = useState(true)
 
     return (
-        <div className="flex flex-col gap-3 h-screen md:p-6">
-            <div className="flex flex-row place-content-between items-center">
+        <div className="flex flex-col gap-3 h-screen md:p-6 md:pb-10">
+            <div className="flex flex-row place-content-between py-3 items-center">
                 <div className="flex text-3xl font-bold items-center">
                     <Button onClick={() => setVisible(!visible)}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                     </Button>
-                    <div>submit.host</div>
+                    <div>
+                        <Link href="/forms"><a>submit.host</a></Link>
+                    </div>
                 </div>
                 <div>My account</div>
             </div>
             <div className="flex-1">
                 <div className="flex flex-col md:flex-row gap-3 flex-1 h-screen">
-                    <div className={`${visible ? "w-full md:w-1/4 shrink-0 overflow-clip flex flex-col relative" : "hidden"}`}>
+                    <div className={`${visible ? "w-full md:w-1/4 shrink-0 overflow-clip flex flex-col relative" : "hidden"} border`}>
 
                         <ModalDialog
                             open={newForm.isOpen}

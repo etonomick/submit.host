@@ -12,11 +12,11 @@ export default function SubmissionsLayout({ children }) {
 
     return (
         <div className="flex flex-col md:flex-row md:h-full gap-3 w-full flex-1">
-            <div className="w-full md:w-1/3 h-72 md:h-full flex flex-col relative bg-white">
+            <div className="w-full md:w-1/3 h-72 md:h-full flex flex-col relative bg-white border">
 
-                <div className=" p-3">
+                {/* <div className=" p-3">
                     <div className="text-2xl font-bold">Submissions</div>
-                </div>
+                </div> */}
 
                 <div className="overflow-y-scroll h-full">
                     <Tab.Group>
@@ -56,7 +56,7 @@ export default function SubmissionsLayout({ children }) {
 
             </div>
 
-            <div className="w-full md:w-2/3">{children}</div>
+            <div className="w-full md:w-2/3 border">{children}</div>
 
         </div>
     )

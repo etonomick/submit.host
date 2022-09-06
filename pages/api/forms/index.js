@@ -48,12 +48,12 @@ async function handler(req, res) {
 
     if (method === "POST") {
         console.log(`Title ${body.title}`)
-        await db.collection("forms").insert({
+        const data = await db.collection("forms").insert({
             user_id: sub,
             created_at: new Date(),
             title: body.title
         })
-        res.status(200).json({})
+        res.status(200).json(data)
     }
 
 }
