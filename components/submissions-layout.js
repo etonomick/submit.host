@@ -13,7 +13,7 @@ export default function SubmissionsLayout({ children }) {
     return (
         <div className="flex flex-col md:flex-row gap-3 w-full h-full">
 
-            <div className="w-full md:w-1/3 flex flex-col relative h-full">
+            <div className="w-full md:w-1/3 flex flex-col relative h-72 md:h-full">
 
                 <div className="h-full">
                     <Tab.Group>
