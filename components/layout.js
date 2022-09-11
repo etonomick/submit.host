@@ -53,7 +53,7 @@ export default function Layout({ children }) {
                 <div>My account</div>
             </div>
             <div className="flex flex-col md:flex-row gap-3 flex-1 pt-20">
-                <div className={`${visible ? "w-full md:w-1/4 shrink-0 overflow-clip flex flex-col relative" : "hidden"}`}>
+                <div className={`${visible ? "w-full md:w-1/4 shrink-0 overflow-clip flex flex-col relative" : "hidden"} px-3 relative`}>
 
                     <ModalDialog
                         open={newForm.isOpen}
@@ -87,7 +87,7 @@ export default function Layout({ children }) {
                         }}
                         cancel={() => setDeleteDialog(false)} />
 
-                    <div className="overflow-y-scroll gap-1.5 flex flex-col h-full pb-16">
+                    <div className="overflow-y-scroll gap-1.5 flex flex-col h-screen pb-16">
                         {forms && forms.map((form, index) => (
                             <FormItem
                                 key={form._id ?? index}
@@ -97,7 +97,7 @@ export default function Layout({ children }) {
                         ))}
                     </div>
 
-                    <div className="absolute left-0 bottom-0 right-0 p-3 z-10 flex items-center place-content-between bg-white">
+                    <div className="absolute left-0 bottom-0 right-0 p-3 z-10 flex items-center place-content-between">
                         <div>{forms && forms.length} forms</div>
                         <div>
                             <Button onClick={async () => {
