@@ -1,5 +1,6 @@
 import { Tab } from "@headlessui/react";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import useSWR from "swr";
 import fetcher from "../lib/fetcher";
 import SubmissionItem from "./SubmissionItem";
@@ -10,6 +11,11 @@ export default function SubmissionsLayout({ children }) {
 
     const { data, error, mutate } = useSWR(`/api/forms/${id}`, fetcher)
 
+    const [tabs] = useState([
+        "Unread",
+        "All"
+    ])
+
     return (
         <div className="flex flex-col md:flex-row gap-3 w-full h-full">
 
@@ -17,9 +23,10 @@ export default function SubmissionsLayout({ children }) {
 
                 <div className="h-full">
                     <Tab.Group>
-                        <Tab.List className="bg-white w-full rounded-lg absolute shadow flex space-x-1 p-3 border-b">
-                            <Tab>Unread {data && data.form && data.form.submissions && data.form.submissions.filter(submission => submission.is_viewed === false).length}</Tab>
-                            <Tab>All {data && data.form && data.form.submissions && data.form.submissions.length}</Tab>
+                        <Tab.List className="bg-white w-full rounded-lg absolute shadow flex  divide-x overflow-hidden text-sm font-medium">
+                            {tabs.map((tab, index) => (
+                                <Tab className={({selected}) => `transition-all duration-250 flex-1 p-3 border-b-2  ${selected ? "border-b-red-500 text-slate-700" : "border-b-white text-slate-500"}`}>{tab}</Tab>
+                            ))}
                         </Tab.List>
                         <Tab.Panels className="h-full">
                             <Tab.Panel className="h-full">
