@@ -36,9 +36,11 @@ export default function SubmissionsLayout({ children }) {
                                 </div>
                             </Tab.Panel>
                             <Tab.Panel className="overflow-y-scroll h-screen">
+                                <div className="pt-16">
                                 {data && data.form && data.form.submissions && data.form.submissions.map((submission, index) => (
                                     <SubmissionItem item={submission} key={submission._id} />
                                 ))}
+                                </div>
                             </Tab.Panel>
                         </Tab.Panels>
                     </Tab.Group>
