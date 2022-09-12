@@ -6,10 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "line": "url('/img/line.svg')",
-      },
+      
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }

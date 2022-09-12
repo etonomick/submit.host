@@ -8,11 +8,10 @@ export default function SubmissionItem({ item }) {
 
     return (
         <Link href={`/forms/${item.form_id}/${item._id}`}><a>
-        <div className={`p-3 rounded-lg ${submission === item._id ? "bg-slate-300" : "bg-transparent"}`}>
-            {/* <div>{JSON.stringify(flatten(item.data))}</div> */}
-            <div>{Object.values(item.data).toString()}</div>
-            {/* <pre className="text-xs whitespace-pre-wrap">{JSON.stringify(item, null, 2)}</pre> */}
-        </div>
+            <div className={`p-3 ${submission === item._id ? "bg-slate-300" : "bg-white"}`}>
+                <pre className="text-xs line-clamp-5">{JSON.stringify(item.data, null, 2)}</pre>
+                <div className="">{new Date().toLocaleDateString()}</div>
+            </div>
         </a></Link>
     )
 }
