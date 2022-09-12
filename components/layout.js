@@ -1,3 +1,4 @@
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -38,6 +39,8 @@ export default function Layout({ children }) {
 
     const [visible, setVisible] = useState(true)
 
+    const { t } = useTranslation()
+
     return (
         <div className="flex flex-col gap-3 h-screen bg-white">
             <div className="flex flex-row place-content-between py-3 items-center bg-white border-b absolute left-0 top-0 right-0 z-50">
@@ -50,7 +53,7 @@ export default function Layout({ children }) {
                         <Link href="/forms"><a>submit.host</a></Link>
                     </div>
                 </div>
-                <div>My account</div>
+                <div>{t("my_account")}</div>
             </div>
             <div className="flex flex-col md:flex-row gap-3 flex-1 pt-20">
                 <div className={`${visible ? "w-full md:w-1/4 shrink-0 overflow-clip flex flex-col relative" : "hidden"} px-3 relative`}>

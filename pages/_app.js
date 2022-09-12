@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 import Layout from "../components/layout";
 import { useRouter } from "next/router";
+import { appWithTranslation } from "next-i18next";
 
 function SubmitHost({ Component, pageProps: {
     session, ...pageProps
@@ -17,4 +18,4 @@ function SubmitHost({ Component, pageProps: {
     )
 }
 
-export default SubmitHost
+export default appWithTranslation(SubmitHost)

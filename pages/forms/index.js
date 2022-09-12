@@ -1,17 +1,17 @@
-import Layout from "../../components/layout";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function FormsIndex() {
     return (
         <div className="bg-white h-full">
-            
+
         </div>
     )
 }
 
-// FormsIndex.getLayout = function getLayout(page) {
-//     return (
-//         <Layout>
-//             {page}
-//         </Layout>
-//     )
-// }
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale))
+        }
+    }
+}
