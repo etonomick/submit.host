@@ -1,7 +1,9 @@
-import { Tab } from "@headlessui/react"
+import { Switch, Tab } from "@headlessui/react"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import Input from "../../../components/Input"
+import Toggle from "../../../components/Toggle"
 
 export default function Settings() {
 
@@ -11,9 +13,28 @@ export default function Settings() {
     const [tabs] = useState([
         {
             title: "Overview",
+            content: [
+                {
+                    title: "Form endpoint",
+                }
+            ]
         },
         {
-            title: "Settings"
+            title: "Settings",
+            content: [
+                {
+                    title: "Enabled",
+                    description: "",
+                    key: "enabled",
+                    value: false
+                },
+                {
+                    title: "Restrict domain",
+                    description: "",
+                    key: "domain",
+                    value: ""
+                }
+            ]
         },
         {
             title: "Integrations"
@@ -23,17 +44,24 @@ export default function Settings() {
     return (
         <div className="bg-white h-full">
             <Tab.Group>
-                <Tab.List>
+                <Tab.List className="w-full flex gap-3 border-b divide-x">
                     {tabs.map((tab, index) => (
-                        <Tab>{tab.title}</Tab>
+                        <Tab className="p-3">{tab.title}</Tab>
                     ))}
                 </Tab.List>
                 <Tab.Panels>
                     {tabs.map((tab, index) => (
                         <Tab.Panel>
-                        <div className="w-full h-full flex items-center justify-center">
-                            {tab.title}
-                        </div>
+                            <div className="w-full p-5 divide-y">
+                                {tab.content && tab.content.map(row => (
+                                    <div className="flex p-2">
+                                        <div className="flex-1">{row.title}</div>
+                                        <div className="flex-1">
+                                            {typeof row.value === "boolean" ? <Toggle /> : <Input />}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </Tab.Panel>
                     ))}
                 </Tab.Panels>
