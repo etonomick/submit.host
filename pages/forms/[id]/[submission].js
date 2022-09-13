@@ -1,3 +1,4 @@
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import SubmissionsLayout from "../../../components/submissions-layout";
@@ -19,4 +20,12 @@ export default function Submission() {
 
 Submission.getLayout = function getLayout(page) {
     return <SubmissionsLayout>{page}</SubmissionsLayout>
+}
+
+export async function getServerSideProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale))
+        }
+    }
 }

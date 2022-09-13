@@ -19,13 +19,13 @@ export default function SubmissionsLayout({ children }) {
     return (
         <div className="flex flex-col md:flex-row gap-3 w-full h-full">
 
-            <div className="w-full md:w-1/3 flex flex-col relative h-72 md:h-full bg-white">
+            <div className="w-full md:w-1/3 flex flex-col relative h-72 md:h-full bg-white border-r">
 
                 <div className="h-full">
                     <Tab.Group>
-                        <Tab.List className="bg-white w-full rounded-lg absolute shadow flex  divide-x overflow-hidden text-sm font-medium">
+                        <Tab.List className="bg-white w-full absolute flex border-b divide-x overflow-hidden">
                             {tabs.map((tab, index) => (
-                                <Tab className={({ selected }) => `transition-all duration-250 flex-1 p-3 border-b-2  ${selected ? "border-b-red-500 text-slate-700" : "border-b-white text-slate-500"}`}>{tab}</Tab>
+                                <Tab className={({ selected }) => `transition-all duration-250 flex-1 p-3  ${selected ? "border-b-red-500 text-slate-700" : "border-b-white text-slate-500"}`}>{tab}</Tab>
                             ))}
                         </Tab.List>
                         <Tab.Panels className="h-full">
@@ -43,7 +43,7 @@ export default function SubmissionsLayout({ children }) {
                                 </div>
                             </Tab.Panel>
                             <Tab.Panel className="overflow-y-scroll h-screen">
-                                <div className="pt-16 flex flex-col">
+                                <div className="pt-12 flex flex-col divide-y">
                                     {data && data.form && data.form.submissions && data.form.submissions.map((submission, index) => (
                                         <SubmissionItem item={submission} key={submission._id} />
                                     ))}

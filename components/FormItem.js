@@ -13,9 +13,9 @@ export default function FormItem({ form, deleteHandler }) {
     return (
         <div onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
 
-            <div className={`transition-all duration-250 flex items-center rounded-lg gap-3 p-3 ${!form._id ? "text-slate-500" : "text-slate-600 hover:text-slate-700"} ${router.query.id === form._id ? "bg-slate-300" : " hover:bg-slate-200"}`}>
+            <div className={`transition-all duration-250 flex items-center gap-3 p-3 ${!form._id ? "" : ""} ${router.query.id === form._id ? "bg-slate-100" : "hover:bg-slate-50"}`}>
 
-                <div className="flex-1 truncate font-medium text-md">
+                <div className="flex-1 truncate">
                     <Link href={`/forms/${form._id}`}>
                         <a>{form.title}</a>
                     </Link>

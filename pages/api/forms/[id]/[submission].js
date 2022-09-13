@@ -4,7 +4,7 @@ import clientPromise from "../../../../lib/mongodb";
 export default async function handler(req, res) {
 
     const { id, submission } = req.query
-    
+
     console.log(`${id}/${submission}`)
 
     const client = await clientPromise
