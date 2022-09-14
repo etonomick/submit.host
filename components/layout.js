@@ -44,7 +44,7 @@ export default function Layout({ children }) {
     return (
         <div className="flex flex-col h-screen bg-neutral-50 font-mono">
             <div className="flex flex-row place-content-between py-3 items-center 
-             absolute left-0 top-0 right-0 z-50">
+             absolute left-0 top-0 right-0 z-50 border-b border-b-black">
                 <div className="flex text-3xl font-bold items-center">
                     <Button onClick={() => setVisible(!visible)}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -57,7 +57,7 @@ export default function Layout({ children }) {
                 <div>{t("my_account")}</div>
             </div>
             <div className="flex flex-col md:flex-row flex-1 pt-16">
-                <div className={`${visible ? "w-full md:w-1/4 shrink-0 overflow-clip flex flex-col relative" : "hidden"} relative`}>
+                <div className={`${visible ? "w-full md:w-1/4 shrink-0 overflow-clip flex flex-col relative" : "hidden"} relative border-r border-r-black`}>
 
                     <ModalDialog
                         open={newForm.isOpen}
@@ -91,7 +91,7 @@ export default function Layout({ children }) {
                         }}
                         cancel={() => setDeleteDialog(false)} />
 
-                    <div className="overflow-y-scroll flex flex-col h-screen pb-16 gap-2 p-2">
+                    <div className="overflow-y-scroll flex flex-col h-screen pb-16 gap-2">
                         {forms && forms.map((form, index) => (
                             <FormItem
                                 key={form._id ?? index}
@@ -101,7 +101,7 @@ export default function Layout({ children }) {
                         ))}
                     </div>
 
-                    <div className="absolute left-0 bottom-0 right-0 p-3 z-10 flex items-center place-content-between">
+                    <div className="absolute left-0 bottom-0 right-0 p-3 z-10 flex items-center place-content-between border-t border-t-black">
                         <div>{forms && forms.length} forms</div>
                         <div>
                             <Button onClick={async () => {
