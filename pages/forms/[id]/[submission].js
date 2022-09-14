@@ -12,7 +12,7 @@ export default function Submission() {
     const { data, error } = useSWR(`/api/forms/${id}/${submission}`, fetcher)
 
     return (
-        <div className="bg-white h-full flex items-center justify-center">
+        <div className="h-full flex items-center justify-center">
             <pre className="whitespace-pre-wrap">{data && JSON.stringify(data, null, 2)}</pre>
         </div>
     )

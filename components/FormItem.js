@@ -13,13 +13,13 @@ export default function FormItem({ form, deleteHandler }) {
     return (
         <div onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
 
-            <div className={`transition-all duration-250 flex items-center gap-3 p-3 ${!form._id ? "" : ""} ${router.query.id === form._id ? "font-black" : ""}`}>
+            <div className={`transition-all duration-250 flex items-center gap-3 p-3 ${!form._id ? "" : ""} ${router.query.id === form._id ? "" : ""}`}>
 
                 <div className="flex-1 flex flex-col gap-1.5">
-                    <div className="line-clamp-2"><Link href={`/forms/${form._id}`}>
+                    <div className="line-clamp-2 font-bold"><Link href={`/forms/${form._id}`}>
                         <a>{form.title}</a>
                     </Link></div>
-                    <div className="text-xs">Created at {new Date().toLocaleDateString()}</div>
+                    <div className="text-xs">{new Date().toLocaleDateString()}</div>
                     {/* <div>{JSON.stringify(form)}</div> */}
                 </div>
 

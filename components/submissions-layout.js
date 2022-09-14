@@ -19,11 +19,11 @@ export default function SubmissionsLayout({ children }) {
     return (
         <div className="flex flex-col md:flex-row gap-3 w-full h-full">
 
-            <div className="w-full md:w-1/3 flex flex-col relative h-72 md:h-full bg-white ">
+            <div className="w-full md:w-1/3 flex flex-col relative h-72 md:h-full">
 
                 <div className="h-full">
                     <Tab.Group>
-                        <Tab.List className="bg-white w-full absolute flex border-b divide-x overflow-hidden">
+                        <Tab.List className=" w-full absolute flex border-b-2 border-b-black overflow-hidden">
                             {tabs.map((tab, index) => (
                                 <Tab className={({ selected }) => `transition-all duration-250 flex-1 p-3  ${selected ? "border-b-red-500 text-slate-700" : "border-b-white text-slate-500"}`}>{tab}</Tab>
                             ))}
@@ -43,7 +43,7 @@ export default function SubmissionsLayout({ children }) {
                                 </div>
                             </Tab.Panel>
                             <Tab.Panel className="overflow-y-scroll h-screen">
-                                <div className="pt-12 flex flex-col divide-y">
+                                <div className="pt-14 flex flex-col px-2">
                                     {data && data.form && data.form.submissions && data.form.submissions.map((submission, index) => (
                                         <SubmissionItem item={submission} key={submission._id} />
                                     ))}
@@ -55,7 +55,9 @@ export default function SubmissionsLayout({ children }) {
 
             </div>
 
-            <div className="w-full md:w-2/3">{children}</div>
+            <div className="w-full md:w-2/3 border-l-2 border-t-2 border-black flex items-center justify-center">
+                {children ? children : <div>Empty state</div>}
+            </div>
 
         </div>
     )
