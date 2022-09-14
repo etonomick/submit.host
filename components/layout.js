@@ -42,8 +42,9 @@ export default function Layout({ children }) {
     const { t } = useTranslation()
 
     return (
-        <div className="flex flex-col h-screen bg-white">
-            <div className="flex flex-row place-content-between py-3 items-center bg-white border-b absolute left-0 top-0 right-0 z-50">
+        <div className="flex flex-col h-screen bg-white font-mono">
+            <div className="flex flex-row place-content-between py-3 items-center 
+             absolute left-0 top-0 right-0 z-50">
                 <div className="flex text-3xl font-bold items-center">
                     <Button onClick={() => setVisible(!visible)}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -56,7 +57,7 @@ export default function Layout({ children }) {
                 <div>{t("my_account")}</div>
             </div>
             <div className="flex flex-col md:flex-row flex-1 pt-16">
-                <div className={`${visible ? "w-full md:w-1/4 shrink-0 overflow-clip flex flex-col relative" : "hidden"} relative border-r`}>
+                <div className={`${visible ? "w-full md:w-1/4 shrink-0 overflow-clip flex flex-col relative" : "hidden"} relative`}>
 
                     <ModalDialog
                         open={newForm.isOpen}
