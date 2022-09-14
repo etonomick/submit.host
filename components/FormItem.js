@@ -21,7 +21,7 @@ export default function FormItem({ form, deleteHandler }) {
                     </Link>
                 </div>
 
-                {form.unread > 0 && <div className="bg-red-500 text-white text-xs px-2 rounded-full">{form.unread}</div>}
+                {form.unread > 0 && <div className="bg-red-500 text-white text-xs px-2">{form.unread}</div>}
 
                 <div className="text-neutral-400 text-xs">
                     {form.total}
@@ -37,12 +37,16 @@ export default function FormItem({ form, deleteHandler }) {
                                 </svg>
                             </Menu.Button>
 
-                            <Menu.Items className="absolute p-3 right-0 mt-2 origin-top-right divide-y divide-gray-100 bg-slate-50 rounded-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50 w-40">
+                            <Menu.Items className="absolute right-0 mt-2 origin-top-right divide-y divide-black bg-orange-50 ring-2 ring-black focus:outline-none z-50 w-40 shadow-brick-to-r">
                                 <Menu.Item>
+                                    <div className="p-2">
                                     <Link href={`/forms/${form._id}/settings`}><a>Settings</a></Link>
+                                    </div>
                                 </Menu.Item>
                                 <Menu.Item>
+                                    <div className="p-2">
                                     <div onClick={deleteHandler}>Delete</div>
+                                    </div>
                                 </Menu.Item>
                             </Menu.Items>
                         </Menu>

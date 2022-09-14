@@ -6,7 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
+      boxShadow: {
+        "brick-to-r": "0.25rem 0.25rem black",
+        "brick-to-l": "-0.25rem 0.25rem black"
+      }
     },
   },
   plugins: [

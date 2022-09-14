@@ -6,9 +6,9 @@ export default function ModalDialog({ open, onClose, title, description, childre
         <Dialog open={open} onClose={onClose} className="relative z-50">
             {/* <div className="fixed inset-0 bg-black/30" aria-hidden="true" /> */}
             <div className="fixed inset-0 flex items-center justify-center">
-                <Dialog.Panel className="mx-auto max-w-sm bg-white rounded-lg shadow-xl p-5 border flex flex-col gap-3">
+                <Dialog.Panel className="mx-auto max-w-sm bg-orange-50 border-2 border-black p-8 flex flex-col gap-3 shadow-brick-to-r">
                     <Dialog.Title
-                        className="text-lg font-medium leading-6 text-gray-900">{title}</Dialog.Title>
+                        className="text-2xl font-bold leading-6 text-gray-900">{title}</Dialog.Title>
                     {description && <div>{description}</div>}
                     {children && children}
                     <Button onClick={actionOnClick}>{actionTitle}</Button>

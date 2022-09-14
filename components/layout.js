@@ -90,7 +90,7 @@ export default function Layout({ children }) {
                         }}
                         cancel={() => setDeleteDialog(false)} />
 
-                    <div className="overflow-y-scroll divide-y flex flex-col h-screen pb-16">
+                    <div className="overflow-y-scroll flex flex-col h-screen pb-16">
                         {forms && forms.map((form, index) => (
                             <FormItem
                                 key={form._id ?? index}

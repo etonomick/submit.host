@@ -42,9 +42,10 @@ export default function Settings() {
     ])
 
     return (
-        <div className="bg-white h-full">
+        <div className="bg-white h-full p-5">
+            <h2 className="text-2xl font-fold">Settings</h2>
             <Tab.Group>
-                <Tab.List className="w-full flex gap-3 border-b divide-x">
+                <Tab.List className="w-full flex border-b">
                     {tabs.map((tab, index) => (
                         <Tab className="p-3">{tab.title}</Tab>
                     ))}
@@ -52,7 +53,7 @@ export default function Settings() {
                 <Tab.Panels>
                     {tabs.map((tab, index) => (
                         <Tab.Panel>
-                            <div className="w-full p-5 divide-y">
+                            <div className="w-full">
                                 {tab.content && tab.content.map(row => (
                                     <div className="flex p-2">
                                         <div className="flex-1">{row.title}</div>
