@@ -10,13 +10,28 @@ export default async function handler(req, res) {
     const client = await clientPromise
     const db = client.db("test")
 
-    const data = await db.collection("submissions").findOne({
-        _id: ObjectId(submission),
-        form_id: ObjectId(id)
-    })
+    if (req.method === "GET") {
 
-    res.status(200).json({
-        data
-    })
+        const data = await db.collection("submissions").findOne({
+            _id: ObjectId(submission),
+            form_id: ObjectId(id)
+        })
+
+        res.status(200).json({
+            data
+        })
+
+    }
+
+    if (req.method === "PATCH") {
+        const data = await db.collection("submissions").updateOne({
+            _id: ObjectId(submission)
+        }, {
+            $set: {
+                "is_viewed": true
+            }
+        })
+        res.status(200).json(data)
+    }
 
 }
